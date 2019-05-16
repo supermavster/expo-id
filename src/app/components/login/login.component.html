@@ -1,0 +1,126 @@
+<div class="text-center">
+    <div class="card">
+        <div class="pos-f-t">
+            <div class="collapse" id="navbarToggleExternalContent">
+                <div class="bg-dark p-4">
+                    <h5 class="text-white h4">Sistema de estadísticas</h5>
+                    <span class="text-muted">©Copyright todos los derechos reservados</span>
+                </div>
+            </div>
+            <nav class="navbar navbar-dark bg-dark">
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                        data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </nav>
+        </div>
+
+        <div class="Container">
+            <div class="row">
+                <div class="col-sm-1"></div>
+                <div class="col-sm">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <td colspan="5" class="center"><strong>Lista de acciones</strong></td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <button class="btn btn-success" (click)="getData()">Cargar datos</button>
+                            </td>
+                            <td colspan="2">
+                                <button class="btn btn-primary" (click)="cargarJson()">Cargar json</button>
+                            </td>
+                            <td colspan="2">
+                                <button class="btn btn-warning" (click)="clearData()">Borrar datos</button>
+                            </td>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td colspan="2">Calcular promedio de edad de mujeres</td>
+                            <td colspan="3"><a (click)="calcularEdadMujeres()"  class="btn btn-primary" id="age"
+                                               name="age">Calcular</a></td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">Hallar el cargo menos común</td>
+                            <td colspan="3"><a (click)="cargoMenosComun()" class="btn btn-primary" id="cargo"
+                                               name="cargo">Calcular</a></td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">Dominio de correo más común</td>
+                            <td colspan="3"><a (click)="calcularDominio()" class="btn btn-primary" id="domain"
+                                               name="domain">Calcular</a></td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">Compañía con más empleados</td>
+                            <td colspan="3"><a (click)="calcularMasEmpleados()" class="btn btn-primary" id="company"
+                                               name="company">Calcular</a></td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">Calcular mes en el que nacieron más hombres</td>
+                            <td colspan="3"><a (click)="mesHombres()" class="btn btn-primary" id="mes"
+                                               name="mes">Calcular</a></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-sm-1"></div>
+            </div>
+        </div>
+    </div>
+    <div class="card">
+
+        <div class="card">
+            <h4>LISTADO GENERAL</h4>
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th>Identificación</th>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>Correo</th>
+                        <th>Sexo</th>
+                        <th>Dirección</th>
+                        <th>Ciudad</th>
+                        <th>Teléfono</th>
+                        <th>Fecha de Nacimiento</th>
+                        <th>Cargo</th>
+                        <th>Departamento</th>
+                        <th>Compañía</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr *ngFor="let p of personas">
+                        <td>{{ p.id}}</td>
+                        <td>{{ p.first_name}}</td>
+                        <td>{{ p.last_name}}</td>
+                        <td>{{ p.email}}</td>
+                        <td>{{ p.gender}}</td>
+                        <td>{{ p.address}}</td>
+                        <td>{{ p.city}}</td>
+                        <td>{{ p.phone}}</td>
+                        <td>{{ p.birth_date}}</td>
+                        <td>{{ p.job_title}}</td>
+                        <td>{{ p.department}}</td>
+                        <td>{{ p.company}}</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <ngb-pagination [collectionSize]="collectionSize" [(page)]="page" [pageSize]="pageSize">
+            </ngb-pagination>
+            <div class="d-flex justify-content-between p-2">
+
+                <select class="custom-select" style="width: auto" [(ngModel)]="pageSize">
+                    <option [ngValue]="20">20 items per page</option>
+                    <option [ngValue]="40">40 items per page</option>
+                    <option [ngValue]="60">60 items per page</option>
+                </select>
+            </div>
+        </div>
+    </div>
+</div>

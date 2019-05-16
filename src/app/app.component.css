@@ -1,0 +1,49 @@
+.centrar {
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.mouse-hand {
+    cursor: pointer;
+}
+
+.loader {
+    border: 16px solid white;
+    border-radius: 50%;
+    border-top: 16px solid red;
+    border-bottom: 16px solid red;
+    border-left: 16px solid black;
+    border-right: 16px solid black;
+    width: 120px;
+    height: 120px;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+    position: fixed;
+    top: 40%;
+}
+
+.static-top{
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    width: 100%;
+}
+@-webkit-keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
